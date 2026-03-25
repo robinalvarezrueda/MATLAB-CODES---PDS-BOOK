@@ -1,0 +1,19 @@
+function [gest1,gest2,gest3,gest4,gest5,gest6,gest7,gest8] = signal_equalization_1(c1,c2,c3,c4,c5,c6,c7,c8)
+    value=140;
+    ge1=[c1;zeros(value-length(c1),1)]; 
+    ge2=[c2;zeros(value-length(c2),1)];
+    ge3=[c3;zeros(value-length(c3),1)];
+    ge4=[c4;zeros(value-length(c4),1)];
+    ge5=[c5;zeros(value-length(c5),1)];
+    ge6=[c6;zeros(value-length(c6),1)];
+    ge7=[c7;zeros(value-length(c7),1)];
+    ge8=[c8;zeros(value-length(c8),1)];
+    gest1=abs(ge1(1:140));
+    gest2=abs(ge2(1:140));
+    gest3=abs(ge3(1:140));
+    gest4=abs(ge4(1:140)); 
+    gest5=abs(ge5(1:140));
+    gest6=abs(ge6(1:140));
+    gest7=abs(ge7(1:140));
+    gest8=abs(ge8(1:140));
+end
