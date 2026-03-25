@@ -1,0 +1,25 @@
+%% PRACTICE 6.13. DFT of a bipolar triangular wave
+
+clc, close all
+f0 = 1; % Fundamental frequency
+duration = 1; 
+f_max = 100; % Since f0 = 1 Hz, assuming f_max = 100 will produce negligible aliasing
+fs = 20*f_max;
+ts = 1/fs;
+tn = ts:ts:duration;
+% Generate a triangular wave (50% duty cycle sawtooth)
+xn = sawtooth(2*pi*f0*tn, 1/2);
+Xk = dft_vectorial(xn);
+magnitudes = abs(Xk);
+normalized_magnitudes = magnitudes / max(magnitudes);
+f = linspace(0, fs, length(xn));
+% Time-domain plot
+stem(tn, xn, 'c', 'MarkerFaceColor', 'c', 'MarkerSize', 6)
+title('Discretized Triangular Signal')
+xlabel('t (seconds)'), axis([0 1 -1 1])
+% Frequency-domain plot
+figure
+stem(f, normalized_magnitudes, 'LineWidth', 1.2)
+title('Normalized Amplitude Spectrum '), xlabel('f (Hz)')
+% Adjusted axis to display exactly 10 frequency components (0 to 10 Hz)
+axis([0 10 0 1.1]), grid minor
